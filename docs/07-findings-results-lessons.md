@@ -1,4 +1,4 @@
-# 9. Troubleshooting and investigation highlights
+# 9. Troubleshooting and Investigation Highlights
 
 I exclude minor setup mistakes from this report and focus on troubleshooting that changed the security analysis.
 
@@ -8,7 +8,7 @@ I did not assume that a newer running kernel meant Wazuh should immediately clea
 
 ## SCA 33300 disagreed with manual validation
 
-Rather than changing `/etc/passwd` to satisfy a scanner result, I manually inspected the password-field condition. The direct check returned no non-shadowed entries, and `pwck -r` made no database changes. I documented the scanner result as a false positive for this endpoint / policy-evaluation mismatch.
+Rather than changing `/etc/passwd` solely to satisfy a scanner result, I manually inspected the password-field condition. The direct check returned no non-shadowed entries, and `pwck -r` made no database changes. I documented the Wazuh result as a disputed scanner finding because the endpoint condition I tested did not reproduce the reported failure.
 
 ## Existing SSH correlation did not fit the hardened endpoint
 
@@ -25,7 +25,7 @@ I verified the chain at multiple points:
 
 ---
 
-# 10. Key findings
+# 10. Key Findings
 
 ## Vulnerability counts require context
 
@@ -37,7 +37,7 @@ The endpoint was running a newer kernel than the originally reported vulnerable 
 
 ## Scanner results require validation
 
-SCA `33300` is the clearest example in this project. The Wazuh result remained failed, but the manual condition check did not support changing the endpoint.
+SCA `33300` is the clearest example in this project. The Wazuh result remained failed, but the manual condition check did not reproduce the reported endpoint condition, so I did not make an unnecessary configuration change.
 
 ## Security review can uncover unrelated access risks
 
@@ -61,7 +61,7 @@ The strongest Active Response evidence was the combination of the custom correla
 
 ---
 
-# 11. Final results
+# 11. Final Results
 
 | Capability | Result |
 |---|---|
@@ -74,7 +74,7 @@ The strongest Active Response evidence was the combination of the custom correla
 | Final SCA state | 49% — 93 passed / 95 failed / 19 N/A |
 | SCA 33168 | Passed |
 | SCA 33161 | Passed |
-| SCA 33300 | Remained failed; manually validated for the tested condition |
+| SCA 33300 | Remained failed; manual endpoint check did not reproduce the reported condition |
 | SSH effective configuration | Verified with `sshd -T` |
 | Legacy `hermes` account | Still present; cleanup deferred |
 | Real-time FIM | Confirmed |
@@ -104,7 +104,7 @@ The strongest Active Response evidence was the combination of the custom correla
 
 ---
 
-# 13. Lessons learned
+# 13. Lessons Learned
 
 1. A SIEM finding is the start of an investigation, not the conclusion.
 2. I should not change a production-like endpoint only to improve a compliance score.
@@ -119,7 +119,28 @@ The strongest Active Response evidence was the combination of the custom correla
 
 ---
 
-# 14. Conclusion
+# 14. Phase 7 — Portfolio and Publication
+
+For the final phase, I reviewed the retained evidence, sanitized screenshots containing internal addresses, removed duplicate and drafting artifacts, organized the documentation in roadmap order, and prepared the repository for public portfolio use.
+
+The publication set includes:
+
+- a concise project README,
+- a static lab architecture diagram,
+- phase-by-phase technical documentation,
+- an evidence index,
+- sanitized screenshots grouped by roadmap phase,
+- and repository ignore rules for common secret/private-key material.
+
+I intentionally excluded raw working notes, duplicate screenshots, unsanitized internal addresses, and intermediate drafts from the public project.
+
+### Phase 7 result
+
+I converted the working homelab notes and retained evidence into a structured portfolio repository while preserving unresolved findings and limitations instead of presenting the project as more complete than the evidence supports.
+
+---
+
+# 15. Conclusion
 
 The most valuable part of this project was not installing Wazuh. It was using the platform to work through disagreements between scanner output and endpoint state, make conservative remediation decisions, build a detection around the endpoint's actual SSH behavior, and verify an automated response.
 

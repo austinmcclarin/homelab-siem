@@ -105,7 +105,7 @@ pwck: no changes
 
 ![SCA 33300 manual validation](../evidence/03-security-hardening/sca-33300-pwck-validation.png)
 
-Based on the manual `/etc/passwd` validation, I classified the Wazuh result as a false positive for this endpoint / policy-evaluation mismatch. I did not modify the endpoint or Wazuh policy simply to improve the score.
+The manual `/etc/passwd` check did not reproduce the condition reported by Wazuh. I therefore treated SCA `33300` as a disputed scanner result for this endpoint and did not modify the endpoint or Wazuh policy simply to improve the score.
 
 ## Additional finding: legacy `hermes` account
 
@@ -141,7 +141,7 @@ The overall scan gained seven passing controls. I do not attribute all seven cha
 I demonstrated two different security outcomes:
 
 1. I remediated SSH controls and verified the effective daemon configuration.
-2. I manually validated a failed SCA finding and avoided an unnecessary endpoint change.
+2. I manually validated a failed SCA finding that did not match the endpoint condition I tested, avoiding an unnecessary configuration change.
 
 The account review also identified an unresolved SSH-access cleanup item.
 

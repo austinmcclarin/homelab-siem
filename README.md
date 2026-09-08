@@ -1,6 +1,6 @@
 # Homelab SIEM: Wazuh Endpoint Security Project
 
-I built this project to demonstrate a complete blue-team workflow with Wazuh on a real Debian homelab endpoint. Rather than stopping at deployment, I used the SIEM to establish a baseline, investigate vulnerability findings, harden SSH, validate a Security Configuration Assessment false positive, configure File Integrity Monitoring, investigate controlled SSH failures, create a custom correlation rule, and verify Wazuh Active Response.
+I built this project to demonstrate a complete blue-team workflow with Wazuh on a real Debian homelab endpoint. Rather than stopping at deployment, I used the SIEM to establish a baseline, investigate vulnerability findings, harden SSH, manually validate an SCA finding that did not match the endpoint check, configure File Integrity Monitoring, investigate controlled SSH failures, create a custom correlation rule, and verify Wazuh Active Response.
 
 ## What this project demonstrates
 
@@ -8,7 +8,7 @@ I built this project to demonstrate a complete blue-team workflow with Wazuh on 
 - Vulnerability investigation and remediation decision-making
 - CIS-based Security Configuration Assessment
 - SSH hardening and effective-configuration verification
-- Manual false-positive validation
+- Manual validation of a disputed SCA finding
 - Linux account and SSH-access review
 - Real-time File Integrity Monitoring
 - SSH authentication-event triage
@@ -32,7 +32,7 @@ The public documentation intentionally omits numerical internal IP addresses.
 | Final SCA state | 49% — 93 passed / 95 failed / 19 N/A |
 | SSH MAC hardening | SCA 33168 passed |
 | SSH forwarding hardening | SCA 33161 passed |
-| SCA 33300 | Remained failed in Wazuh; manually validated as compliant for the tested condition |
+| SCA 33300 | Remained failed in Wazuh; the manual `/etc/passwd` check did not reproduce the reported condition |
 | Legacy `hermes` account | Still present; documented as deferred cleanup |
 | FIM modification detection | Confirmed |
 | FIM restoration detection | Confirmed |

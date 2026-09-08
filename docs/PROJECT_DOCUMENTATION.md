@@ -1,6 +1,6 @@
 # Wazuh SIEM Homelab — Project Documentation
 
-I documented this project in roadmap order so each phase can be reviewed independently while still following the full security workflow from baseline through Active Response.
+I documented this project in roadmap order so each phase can be reviewed independently while still following the full security workflow from baseline through Active Response and final portfolio preparation.
 
 ## Project documentation
 
@@ -11,7 +11,7 @@ I documented this project in roadmap order so each phase can be reviewed indepen
 5. [Phase 4 — File Integrity Monitoring](04-file-integrity-monitoring.md)
 6. [Phase 5 — Controlled SSH Security Event](05-ssh-detection.md)
 7. [Phase 6 — Custom Detection and Active Response](06-active-response.md)
-8. [Troubleshooting, findings, final results, limitations, and lessons learned](07-findings-results-lessons.md)
+8. [Troubleshooting, findings, final results, lessons learned, and Phase 7 portfolio preparation](07-findings-results-lessons.md)
 
 ## Evidence
 

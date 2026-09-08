@@ -19,16 +19,7 @@ I built this project to demonstrate a complete blue-team workflow with Wazuh on 
 
 ## Lab architecture
 
-```mermaid
-flowchart LR
-    W[Workstation<br/>Controlled SSH tests]
-    D[Debian Docker Host<br/>Wazuh Agent]
-    S[Wazuh Server<br/>Ubuntu Server 24.04<br/>Manager / Indexer / Dashboard]
-
-    W -->|Controlled SSH authentication tests| D
-    D -->|Endpoint telemetry| S
-    S -->|Detection and Active Response| D
-```
+![Homelab SIEM architecture](architecture/homelab-siem-architecture.png)
 
 The public documentation intentionally omits numerical internal IP addresses.
 

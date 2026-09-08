@@ -19,7 +19,7 @@ I built this project to demonstrate a complete blue-team workflow with Wazuh on 
 
 ## Lab architecture
 
-![Homelab SIEM architecture](architecture/homelab-siem-architecture.png)
+![Homelab SIEM architecture](architecture/homelab-siem-architecture.jpg)
 
 The public documentation intentionally omits numerical internal IP addresses.
 

@@ -14,7 +14,7 @@ My workflow was:
 6. Generate and investigate controlled SSH authentication failures.
 7. Build a custom correlation rule for repeated public-key failures.
 8. Verify Wazuh Active Response.
-9. Review the evidence and document limitations and unresolved findings.
+9. Review and sanitize the evidence, document limitations and unresolved findings, and prepare the project for portfolio publication.
 
 The goal was not to make every dashboard finding disappear. The goal was to investigate what Wazuh reported, validate the endpoint state, remediate what was appropriate, and preserve unresolved findings honestly.
 
